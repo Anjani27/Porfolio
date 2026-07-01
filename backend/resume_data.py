@@ -103,6 +103,16 @@ RESUME_DATA = {
                 "Developed a production-grade RAG system using FastAPI, FAISS, and LLM APIs with real-time SSE streaming, achieving sub-500ms response latency for document Q&A.",
                 "Built end-to-end document ingestion, chunking, embedding, and semantic retrieval pipeline; reduced hallucination rate by ~40% compared to direct LLM prompting on domain documents."
             ]
+        },
+        {
+            "title": "AI-Powered Portfolio (Full-Stack)",
+            "period": "Jun 2026 – Present",
+            "tech": ["FastAPI", "Python", "LangChain", "Groq (LLaMA)", "HTML/CSS", "JavaScript"],
+            "liveDemo": "https://anjani27.github.io/Porfolio/",
+            "bullets": [
+                "Built and deployed a full-stack professional portfolio featuring a glassmorphic HTML/CSS/JS frontend and an interactive RAG chatbot backend.",
+                "Engineered the AI assistant using FastAPI and LangChain connected to Groq LLaMA 3.3, supporting real-time streaming answers via Server-Sent Events (SSE) and client-side offline fallback."
+            ]
         }
     ],
     "achievements": [

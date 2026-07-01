@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
               title: r.name,
               description: r.description,
               language: r.language,
+              topics: r.topics || [],
               stars: r.stargazers_count,
               url: r.html_url
             }));
@@ -262,11 +263,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (projects.length === 0) return;
 
-    // Helper to extract tech tags from repo name and description
-    function extractTechTags(title, description, primaryLanguage) {
+    // Helper to extract tech tags from repo name, description, and topics
+    function extractTechTags(title, description, primaryLanguage, topics) {
       const textToScan = `${title} ${description || ""}`.toLowerCase();
       const tags = new Set();
       
+      // 1. Add all topics directly (with nice capitalization)
+      if (topics && Array.isArray(topics)) {
+        topics.forEach(t => {
+          const techKeywords = {
+            "fastapi": "FastAPI",
+            "spring-boot": "Spring Boot",
+            "langchain": "LangChain",
+            "langgraph": "LangGraph",
+            "huggingface": "Hugging Face",
+            "streamlit": "Streamlit",
+            "mcp": "MCP",
+            "typescript": "TypeScript",
+            "python": "Python",
+            "pytorch": "PyTorch",
+            "tensorflow": "TensorFlow",
+            "faiss": "FAISS",
+            "rag": "RAG",
+            "llm": "LLMs",
+            "nlp": "NLP",
+            "postgresql": "PostgreSQL",
+            "postgres": "PostgreSQL",
+            "docker": "Docker",
+            "supabase": "Supabase",
+            "powerbi": "Power BI",
+            "power-bi": "Power BI",
+            "nextjs": "Next.js",
+            "next.js": "Next.js",
+            "react": "React",
+            "nodejs": "Node.js",
+            "node.js": "Node.js",
+            "mongodb": "MongoDB"
+          };
+          const lowercaseTopic = t.toLowerCase();
+          if (techKeywords[lowercaseTopic]) {
+            tags.add(techKeywords[lowercaseTopic]);
+          } else {
+            // Capitalize first letters of each word
+            const formatted = t
+              .split(/[-_]+/)
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ");
+            tags.add(formatted);
+          }
+        });
+      }
+
+      // 2. Scan title and description for keywords as a fallback/supplement
       const techKeywords = {
         "langchain": "LangChain",
         "langgraph": "LangGraph",
@@ -349,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const starsTag = p.stars > 0 ? `<span class="tech-tag">⭐ ${p.stars}</span>` : "";
 
       // Extract tech tags
-      const techTags = extractTechTags(p.title, p.description, p.language);
+      const techTags = extractTechTags(p.title, p.description, p.language, p.topics);
       const techTagsHTML = techTags.map(tag => `<span class="tech-tag">${tag}</span>`).join("\n");
 
       card.innerHTML = `

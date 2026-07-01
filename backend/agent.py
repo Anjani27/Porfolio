@@ -52,6 +52,7 @@ def fetch_live_github_projects() -> List[Dict[str, Any]]:
                         "title": r.get("name"),
                         "description": r.get("description"),
                         "language": r.get("language"),
+                        "topics": r.get("topics", []),  # Fetch topics (tags) containing tools/frameworks
                         "stars": r.get("stargazers_count"),
                         "url": r.get("html_url"),
                         "updated_at": r.get("updated_at")
@@ -164,7 +165,7 @@ def stream_chat_response(query: str, history: List[Dict[str, str]] = None) -> Ge
         github_repos = fetch_live_github_projects()
         if github_repos:
             repo_list_str = "\n".join([
-                f"- {r['title']} ({r['language'] or 'Other'}): {r['description']} (Stars: {r['stars']}, Link: {r['url']})"
+                f"- {r['title']} ({r['language'] or 'Other'}{', Topics: ' + ', '.join(r['topics']) if r['topics'] else ''}): {r['description']} (Stars: {r['stars']}, Link: {r['url']})"
                 for r in github_repos[:8]
             ])
             messages.append(SystemMessage(content=f"LIVE GITHUB PROJECTS:\n{repo_list_str}"))

@@ -164,6 +164,17 @@ const KNOWLEDGE_BASE = {
         "Implemented a Streamlit UI for real-time video transcript Q&A with semantic search capabilities.",
       ],
     },
+    {
+      title: "AI-Powered Portfolio (Full-Stack)",
+      period: "Jun 2026 – Present",
+      tech: ["FastAPI", "Python", "LangChain", "Groq (LLaMA)", "HTML/CSS", "JavaScript"],
+      liveDemo: "https://anjani27.github.io/Porfolio/",
+      github: "https://github.com/Anjani27/Porfolio",
+      bullets: [
+        "Built and deployed a full-stack professional portfolio featuring a glassmorphic HTML/CSS/JS frontend and an interactive RAG chatbot backend.",
+        "Engineered the AI assistant using FastAPI and LangChain connected to Groq LLaMA 3.3, supporting real-time streaming answers via Server-Sent Events (SSE) and client-side offline fallback.",
+      ],
+    },
   ],
 
   /* -------- education -------- */
