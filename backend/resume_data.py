@@ -9,10 +9,10 @@ RESUME_DATA = {
         "linkedin": "https://www.linkedin.com/in/anjani-kushwaha-245a42210",
         "github": "https://github.com/Anjani27",
         "summary": (
-            "Data Scientist and AI/ML Engineer with 1.5+ years building Generative AI applications, "
-            "Retrieval-Augmented Generation (RAG) systems, and LLM evaluation pipelines. Experienced in "
-            "model development, EDA, prompt engineering, and MLOps using PyTorch, LangGraph, FastAPI, and FAISS. "
-            "Passionate about translating complex AI findings into actionable insights for stakeholders."
+            "Backend and AI/ML Engineer with 1.5+ years building robust backend architectures (FastAPI, Spring Boot), "
+            "Generative AI applications, and Retrieval-Augmented Generation (RAG) systems. Experienced in "
+            "microservices development, REST API optimization, and agentic AI pipelines. "
+            "Passionate about engineering reliable, scalable, and high-performance backend systems."
         )
     },
     "skills": {

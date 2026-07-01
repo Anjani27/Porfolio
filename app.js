@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---- Typing effect for hero tagline ----
   const typingEl = document.getElementById("typingText");
   const phrases = [
-    "AI/ML Engineer building intelligent systems.",
-    "Crafting RAG pipelines & LLM evaluations.",
-    "Turning complex data into actionable insights.",
-    "Passionate about Generative AI & MLOps.",
+    "Backend & AI/ML Engineer building robust systems.",
+    "Skilled in FastAPI, Spring Boot, and PostgreSQL.",
+    "Crafting RAG pipelines & multi-agent AI systems.",
+    "Passionate about scalable backend architectures.",
   ];
   let phraseIdx = 0;
   let charIdx = 0;
